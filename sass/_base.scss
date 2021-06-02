@@ -1,0 +1,37 @@
+// CSS RESET
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px / 16px = 62.5% -> 1rem = 10px
+  color: $color-text;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.7;
+  background-color: #f4f4f4;
+}
+
+.link:link,
+.link:visited {
+  color: $color-link;
+  font-weight: bold;
+
+  &:hover {
+    color: $color-hover;
+  }
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,17 @@
+{
+  "name": "kitchen-refresh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "sass": "node-sass -w sass/main.scss -o css"
+  },
+  "author": "nick@ehlenanalytics.net",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^6.0.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.2"
+  }
+}
