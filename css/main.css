@@ -1,0 +1,171 @@
+/* //$ CSS Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  color: #2e9b22;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.7;
+  background-color: #f4f4f4;
+}
+
+.link:link,
+.link:visited {
+  color: #402a38;
+  font-weight: bold;
+}
+
+.link:link:hover,
+.link:visited:hover {
+  color: #2e9b2248;
+}
+
+.hidden {
+  display: none;
+}
+
+.picked {
+  border: 5px solid red;
+  opacity: 0.3;
+}
+
+.page {
+  width: 80%;
+  margin: 200px auto;
+  padding: 80px;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.header {
+  font-weight: 800;
+}
+
+.header__paragraph {
+  padding: 1rem;
+}
+
+.container__header {
+  font-weight: 200;
+}
+
+.container__elements {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-between;
+}
+
+.container__elements > * {
+  flex: 1 1 30%;
+}
+
+.container__box {
+  padding: 4rem;
+  text-align: left;
+}
+
+.container__box__header {
+  font-weight: 400;
+}
+
+.container__box__img:hover {
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.container__split__box {
+  display: flex;
+}
+
+.container__split__box > * {
+  flex: 1 1;
+}
+
+.container__split__box__items {
+  display: flex;
+  flex-direction: column;
+}
+
+.container__split__box__items__form {
+  background-color: #f4f4f4;
+  width: 80%;
+  margin: 20px 20px;
+  padding: 30px;
+  color: #000;
+  border-radius: 30px;
+}
+
+.container__split__box__items__form ul li {
+  display: flex;
+  flex-direction: row;
+}
+
+.container__split__box__items__form ul li > * {
+  flex: 1 1;
+}
+
+.container__split__box__items__form ul li input {
+  margin-bottom: 10px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.side {
+  display: flex;
+  flex-direction: row;
+}
+
+.container__split__box__forms {
+  display: flex;
+  flex-direction: column;
+}
+
+.container__split__box__forms__form {
+  text-align: center;
+}
+
+.container__split__box__forms__form ul li input {
+  margin: 10px 0 10px 0;
+  height: 40px;
+  width: 100%;
+  padding: 20px;
+}
+
+.container__button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 5rem;
+}
+
+.container__button__previous {
+  width: 30rem;
+  height: 6rem;
+  background-color: #2e9b22;
+  color: #ffffff;
+}
+
+.container__button__next {
+  width: 30rem;
+  height: 6rem;
+  background-color: #2e9b22;
+  color: #ffffff;
+}
