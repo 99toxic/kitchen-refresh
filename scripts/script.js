@@ -1,5 +1,7 @@
 'use strict';
 
+const finishHTML = document.querySelector;
+
 const pageOne = document.querySelector('.page__one');
 const pageTwo = document.querySelector('.page__two');
 const pageThree = document.querySelector('.page__three');
@@ -80,10 +82,8 @@ submitBtn.addEventListener('click', function (e) {
   const itemsPicked = document.querySelectorAll('.picked');
 
   console.log(
-    'test 1',
     itemsPicked,
     formDoors.value,
-    'test 2',
     formGlass.value,
     formDrawers.value,
     formWall.value,
