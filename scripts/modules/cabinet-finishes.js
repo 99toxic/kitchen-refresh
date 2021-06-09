@@ -1,5 +1,3 @@
-'use strict';
-
 const finishSection = document.querySelector('.finish');
 
 const cabinetFinishes = [
@@ -140,16 +138,60 @@ const cabinetFinishes = [
   },
 ]; //end cabinetFinishes
 
-cabinetFinishes.forEach((_, index) => {
-  const html = `
-    <div class="container__box">
-      <h3 class="container__box__header">${cabinetFinishes[index].name}</h3>
+// cabinetFinishes.forEach((_, index) => {
+//   const html = `
+//     <div class="container__box pagination">
+//       <h3 class="container__box__header">${cabinetFinishes[index].name}</h3>
+//       <div class="img__wrap">
+//         <img class="container__box__img " src="${cabinetFinishes[index].img}" alt="${cabinetFinishes[index].name}" />
+//         <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
+//       </div>
+//     </div>
+//   `;
+
+//   finishSection.insertAdjacentHTML('afterbegin', html);
+// });
+
+const list_element = document.getElementsByClassName('finish');
+const pagination_element = document.getElementsByClassName('pagination');
+
+const btnRight = document.querySelector('.finish__button__right');
+const btnLeft = document.querySelector('.finish__button__Left');
+
+let current_page = 1;
+let rows = 6;
+
+const displayList = function (items, wrapper, rows_per_page, page) {
+  wrapper.innerHTML = '';
+  page--;
+
+  let start = rows_per_page * page;
+  let end = start + rows_per_page;
+
+  let paginatedItems = items.slice(start, end);
+
+  for (let i = 0; i < paginatedItems.length; i++) {
+    btnRight.onclick = function () {
+      current_page += 1;
+      console.log(current_page);
+    };
+    const html = `
+    <div class="container__box pagination">
+      <h3 class="container__box__header">${paginatedItems[i].name}</h3>
       <div class="img__wrap">
-        <img class="container__box__img " src="${cabinetFinishes[index].img}" alt="${cabinetFinishes[index].name}" />
+        <img class="container__box__img " src="${paginatedItems[i].img}" alt="${paginatedItems[i].name}" />
         <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
       </div>
     </div>
   `;
+    finishSection.insertAdjacentHTML('afterbegin', html);
+  }
+}; //end displayList fn
 
-  finishSection.insertAdjacentHTML('afterbegin', html);
-});
+// btnRight.addEventListener('click', () => {
+//   current_page += 1;
+//   console.log('page ' + current_page);
+// });
+// console.log('page ' + current_page);
+
+displayList(cabinetFinishes, list_element, rows, current_page);

@@ -1,5 +1,7 @@
 'use strict';
 
+const hardwareSection = document.querySelector('.hardware');
+
 const hardware = [
   {
     name: 'Rustic',
@@ -19,7 +21,7 @@ const hardware = [
   {
     name: 'Steam',
     price: 10,
-    img: 'img/hardware/steam-brushed-tin.jpg',
+    img: 'img/hardware/stream-brushed-tin.jpg',
   },
   {
     name: 'Prairie',
@@ -78,12 +80,16 @@ const hardware = [
   },
 ]; //end hardware
 
-const html = `
-<div class="container__box">
-  <h3 class="container__box__header">${hardware.name}</h3>
-  <div  class="img__wrap">
-    <img class="container__box__img img_13" src="${hardware.img}" alt="${hardware.name}" />
-    <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-  </div>
-</div>
-`;
+hardware.forEach((_, index) => {
+  const html = `
+    <div class="container__box">
+      <h3 class="container__box__header">${hardware[index].name}</h3>
+      <div class="img__wrap">
+        <img class="container__box__img " src="${hardware[index].img}" alt="${hardware[index].name}" />
+        <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
+      </div>
+    </div>
+  `;
+
+  hardwareSection.insertAdjacentHTML('afterbegin', html);
+});

@@ -1,5 +1,7 @@
 'use strict';
 
+const doorSection = document.querySelector('.door-style');
+
 const cabinetDoorStyles = [
   {
     name: 'Shaker Style Door',
@@ -33,12 +35,16 @@ const cabinetDoorStyles = [
   },
 ]; //end cabinetDoorStyle
 
-const html = `
-<div class="container__box">
-<h3 class="container__box__header">${cabinetDoorStyles.name}</h3>
-<div class="img__wrap">
-  <img class="container__box__img" src="${cabinetDoorStyles.img}" alt="${cabinetDoorStyles.name}" />
-  <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-</div>
-</div>
-`;
+cabinetDoorStyles.forEach((_, index) => {
+  const html = `
+    <div class="container__box">
+      <h3 class="container__box__header">${cabinetDoorStyles[index].name}</h3>
+      <div class="img__wrap">
+        <img class="container__box__img " src="${cabinetDoorStyles[index].img}" alt="${cabinetDoorStyles[index].name}" />
+        <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
+      </div>
+    </div>
+  `;
+
+  doorSection.insertAdjacentHTML('afterbegin', html);
+});

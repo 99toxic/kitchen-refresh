@@ -23,6 +23,9 @@
 
     <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="scripts/modules/cabinet-finishes.js"></script>
+    <script defer src="scripts/modules/cabinet-door-style.js"></script>
+    <script defer src="scripts/modules/cabinet-glass.js"></script>
+    <script defer src="scripts/modules/hardware.js"></script>
     <script defer src="scripts/script.js"></script>
   </head>
   <body>
@@ -39,6 +42,8 @@
 
         <div class="container__elements finish" data-selection="finish">
           <!-- insertAdjacentHTML cabinet-finish.js -->
+          <button class="finish__button__left"><i class="fa li fa fa-chevron-left"></i></button>
+          <button class="finish__button__right"><i class="fa li fa fa-chevron-right"></i></button>
         </div>
       </div>
       <div class="container__button">
@@ -49,82 +54,22 @@
     <main class="page page__two hidden">
       <div class="container">
         <h2 class="container__header">Step 2: Select Your Door Style</h2>
-        <div class="container__elements" data-selection="door">
-          <div class="container__box">
-            <h3 class="container__box__header">Shaker</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_7" src="img/finish.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
-          <div class="container__box">
-            <h3 class="container__box__header">Beadboard</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_8" src="img/finish.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
-          <div class="container__box">
-            <h3 class="container__box__header">Modern</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_9" src="img/finish.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
+        <div class="container__elements door-style" data-selection="door">
+          <!-- insertAdjacentHTML cabinet-door-style.js -->
         </div>
       </div>
       <div class="container">
         <h2 class="container__header">Step 3: Select Your Glass Style</h2>
 
-        <div class="container__elements" data-selection="glass">
-          <div class="container__box">
-            <h3 class="container__box__header">Clear</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_10" src="img/glass.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
-          <div class="container__box">
-            <h3 class="container__box__header">Linen</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_11" src="img/glass.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
-          <div class="container__box">
-            <h3 class="container__box__header">Seeded</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_12" src="img/glass.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
+        <div class="container__elements glass" data-selection="glass">
+          <!-- insertAdjacentHTML cabinet-glass.js -->
         </div>
       </div>
       <div class="container">
         <h2 class="container__header">Step 4: Select Your Hardware Style</h2>
 
-        <div class="container__elements" data-selection="hardware">
-          <div class="container__box">
-            <h3 class="container__box__header">Rustic</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_13" src="img/hardware.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
-          <div class="container__box">
-            <h3 class="container__box__header">Marvelous</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_14" src="img/hardware.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
-          <div class="container__box">
-            <h3 class="container__box__header">Glacier</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_15" src="img/hardware.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
+        <div class="container__elements hardware" data-selection="hardware">
+          <!-- insertAdjacentHTML hardware.js -->
         </div>
       </div>
       <div class="container__button">

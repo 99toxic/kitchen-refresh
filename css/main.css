@@ -221,3 +221,18 @@ ul {
   background-color: #2e9b22;
   color: #ffffff;
 }
+
+.finish__button__left {
+  display: grid;
+  background: none;
+  border: none;
+  z-index: 9999;
+}
+
+.finish__button__right {
+  display: grid;
+  grid-template-columns: max-width;
+  background: none;
+  border: none;
+  z-index: 9999;
+}
