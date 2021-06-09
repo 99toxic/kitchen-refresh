@@ -170,6 +170,7 @@ const displayList = function (items, wrapper, rows_per_page, page) {
 
   let paginatedItems = items.slice(start, end);
 
+  //! working here!!
   for (let i = 0; i < paginatedItems.length; i++) {
     btnRight.onclick = function () {
       current_page += 1;
