@@ -161,6 +161,13 @@ const btnLeft = document.querySelector('.finish__button__Left');
 let current_page = 1;
 let rows = 6;
 
+//# Working on button here!
+btnRight.onclick = function () {
+  current_page += 1;
+  console.log(current_page);
+  return current_page;
+};
+
 const displayList = function (items, wrapper, rows_per_page, page) {
   wrapper.innerHTML = '';
   page--;
@@ -170,12 +177,7 @@ const displayList = function (items, wrapper, rows_per_page, page) {
 
   let paginatedItems = items.slice(start, end);
 
-  //! working here!!
   for (let i = 0; i < paginatedItems.length; i++) {
-    btnRight.onclick = function () {
-      current_page += 1;
-      console.log(current_page);
-    };
     const html = `
     <div class="container__box pagination">
       <h3 class="container__box__header">${paginatedItems[i].name}</h3>
