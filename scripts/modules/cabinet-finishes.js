@@ -1,3 +1,5 @@
+'use-strict';
+
 const finishSection = document.querySelector('.finish');
 
 const cabinetFinishes = [
@@ -138,35 +140,14 @@ const cabinetFinishes = [
   },
 ]; //end cabinetFinishes
 
-// cabinetFinishes.forEach((_, index) => {
-//   const html = `
-//     <div class="container__box pagination">
-//       <h3 class="container__box__header">${cabinetFinishes[index].name}</h3>
-//       <div class="img__wrap">
-//         <img class="container__box__img " src="${cabinetFinishes[index].img}" alt="${cabinetFinishes[index].name}" />
-//         <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-//       </div>
-//     </div>
-//   `;
-
-//   finishSection.insertAdjacentHTML('afterbegin', html);
-// });
-
 const list_element = document.getElementsByClassName('finish');
 const pagination_element = document.getElementsByClassName('pagination');
 
-const btnRight = document.querySelector('.finish__button__right');
-const btnLeft = document.querySelector('.finish__button__Left');
+const finishBtnRight = document.querySelector('.finish__button__right');
+const finishBtnLeft = document.querySelector('.finish__button__left');
 
 let current_page = 1;
 let rows = 6;
-
-//# Working on button here!
-btnRight.onclick = function () {
-  current_page += 1;
-  console.log(current_page);
-  return current_page;
-};
 
 const displayList = function (items, wrapper, rows_per_page, page) {
   wrapper.innerHTML = '';
@@ -191,10 +172,24 @@ const displayList = function (items, wrapper, rows_per_page, page) {
   }
 }; //end displayList fn
 
-// btnRight.addEventListener('click', () => {
-//   current_page += 1;
-//   console.log('page ' + current_page);
-// });
-// console.log('page ' + current_page);
+finishBtnRight.addEventListener('click', () => {
+  $(finishSection).children().hide();
+
+  if (current_page === Math.round(cabinetFinishes.length / 6 - 1)) current_page = 0;
+
+  current_page++;
+
+  displayList(cabinetFinishes, list_element, rows, current_page);
+});
+
+finishBtnLeft.addEventListener('click', () => {
+  $(finishSection).children().hide();
+
+  if (current_page === 0) current_page = Math.round(cabinetFinishes.length / 6 - 1);
+
+  displayList(cabinetFinishes, list_element, rows, current_page);
+
+  current_page--;
+});
 
 displayList(cabinetFinishes, list_element, rows, current_page);

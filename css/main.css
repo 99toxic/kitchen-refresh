@@ -67,7 +67,8 @@ h2 {
 }
 
 .page {
-  width: 80%;
+  width: 100%;
+  max-width: 100rem;
   margin: 20rem auto;
   padding: 8rem;
   border-radius: 2rem;
@@ -222,17 +223,16 @@ ul {
   color: #ffffff;
 }
 
-.finish__button__left {
-  display: grid;
+.p_button {
   background: none;
   border: none;
-  z-index: 9999;
+  font-size: 3rem;
+  color: #2e9b22;
 }
 
-.finish__button__right {
-  display: grid;
-  grid-template-columns: max-width;
-  background: none;
-  border: none;
-  z-index: 9999;
+.layout {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex: 1 90% 1;
 }

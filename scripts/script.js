@@ -69,8 +69,6 @@ const selectItems = function (items) {
     if ($(this).parent('div').attr('data-selection') == items) {
       $("div[data-selection='" + items + "']  img").removeClass('picked');
       $(this).find('img').toggleClass('picked');
-    } else if ($(this).parent('div').attr('data-selection') == 'multiple') {
-      $(this).find('img').toggleClass('picked');
     }
   });
 }; //end selectItems fn

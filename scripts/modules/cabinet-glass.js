@@ -3,6 +3,7 @@
 const glassSection = document.querySelector('.glass');
 
 const cabinetGlass = [
+  {},
   {
     name: 'Clear',
     price: 180,
@@ -30,16 +31,54 @@ const cabinetGlass = [
   },
 ]; //end cabinetGlass
 
-cabinetGlass.forEach((_, index) => {
-  const html = `
-    <div class="container__box">
-      <h3 class="container__box__header">${cabinetGlass[index].name}</h3>
+const glassBtnRight = document.querySelector('.glass__button__right');
+const glassBtnLeft = document.querySelector('.glass__button__left');
+
+let current_glass = 1;
+
+let glassRows = 3;
+
+const displayGlass = function (items, wrapper, rows_per_page, page) {
+  wrapper.innerHTML = '';
+  page--;
+
+  let start = rows_per_page * page;
+  let end = start + rows_per_page;
+
+  let paginatedItems = items.slice(start, end);
+
+  for (let i = 0; i < paginatedItems.length; i++) {
+    const html = `
+    <div class="container__box pagination">
+      <h3 class="container__box__header">${paginatedItems[i].name}</h3>
       <div class="img__wrap">
-        <img class="container__box__img " src="${cabinetGlass[index].img}" alt="${cabinetGlass[index].name}" />
+        <img class="container__box__img " src="${paginatedItems[i].img}" alt="${paginatedItems[i].name}" />
         <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
       </div>
     </div>
   `;
+    glassSection.insertAdjacentHTML('afterbegin', html);
+  }
+}; //end displayGlass fn
 
-  glassSection.insertAdjacentHTML('afterbegin', html);
+glassBtnRight.addEventListener('click', () => {
+  $(glassSection).children().hide();
+
+  if (current_glass === 2) current_glass = 0;
+
+  current_glass++;
+
+  displayGlass(cabinetGlass, glassSection, glassRows, current_glass);
 });
+
+glassBtnLeft.addEventListener('click', () => {
+  $(glassSection).children().hide();
+
+  if (current_glass === 0) current_glass = 2;
+
+  displayGlass(cabinetGlass, glassSection, glassRows, current_glass);
+
+  current_glass--;
+});
+
+displayGlass(cabinetGlass, glassSection, glassRows, current_glass);

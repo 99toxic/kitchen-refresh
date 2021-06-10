@@ -20,13 +20,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <!--End Stylesheets-->
-
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="scripts/modules/cabinet-finishes.js"></script>
-    <script defer src="scripts/modules/cabinet-door-style.js"></script>
-    <script defer src="scripts/modules/cabinet-glass.js"></script>
-    <script defer src="scripts/modules/hardware.js"></script>
-    <script defer src="scripts/script.js"></script>
   </head>
   <body>
     <main class="page page__one">
@@ -40,10 +33,16 @@
       <div class="container">
         <h2 class="container__header">Step 1: Select Your Finish</h2>
 
-        <div class="container__elements finish" data-selection="finish">
-          <!-- insertAdjacentHTML cabinet-finish.js -->
-          <button class="finish__button__left"><i class="fa li fa fa-chevron-left"></i></button>
-          <button class="finish__button__right"><i class="fa li fa fa-chevron-right"></i></button>
+        <div class="layout">
+          <button class="finish__button__left p_button">
+            <i class="fa li fa fa-chevron-left"></i>
+          </button>
+          <div class="container__elements finish" data-selection="finish">
+            <!-- insertAdjacentHTML cabinet-finish.js -->
+          </div>
+          <button class="finish__button__right p_button">
+            <i class="fa li fa fa-chevron-right"></i>
+          </button>
         </div>
       </div>
       <div class="container__button">
@@ -54,22 +53,49 @@
     <main class="page page__two hidden">
       <div class="container">
         <h2 class="container__header">Step 2: Select Your Door Style</h2>
-        <div class="container__elements door-style" data-selection="door">
-          <!-- insertAdjacentHTML cabinet-door-style.js -->
+
+        <div class="layout">
+          <button class="doors__button__left p_button">
+            <i class="fa li fa fa-chevron-left"></i>
+          </button>
+          <div class="container__elements door-style" data-selection="door">
+            <!-- insertAdjacentHTML cabinet-door-style.js -->
+          </div>
+          <button class="doors__button__right p_button">
+            <i class="fa li fa fa-chevron-right"></i>
+          </button>
         </div>
       </div>
       <div class="container">
         <h2 class="container__header">Step 3: Select Your Glass Style</h2>
 
-        <div class="container__elements glass" data-selection="glass">
-          <!-- insertAdjacentHTML cabinet-glass.js -->
+        <div class="layout">
+          <button class="glass__button__left p_button">
+            <i class="fa li fa fa-chevron-left"></i>
+          </button>
+
+          <div class="container__elements glass" data-selection="glass">
+            <!-- insertAdjacentHTML cabinet-glass.js -->
+          </div>
+          <button class="glass__button__right p_button">
+            <i class="fa li fa fa-chevron-right"></i>
+          </button>
         </div>
       </div>
       <div class="container">
         <h2 class="container__header">Step 4: Select Your Hardware Style</h2>
 
-        <div class="container__elements hardware" data-selection="hardware">
-          <!-- insertAdjacentHTML hardware.js -->
+        <div class="layout">
+          <button class="hardware__button__left p_button">
+            <i class="fa li fa fa-chevron-left"></i>
+          </button>
+
+          <div class="container__elements hardware" data-selection="hardware">
+            <!-- insertAdjacentHTML hardware.js -->
+          </div>
+          <button class="hardware__button__right p_button">
+            <i class="fa li fa fa-chevron-right"></i>
+          </button>
         </div>
       </div>
       <div class="container__button">
@@ -191,5 +217,12 @@
         <button class="container__button__submit">Submit</button>
       </div>
     </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts/modules/cabinet-finishes.js"></script>
+    <script src="scripts/modules/cabinet-door-style.js"></script>
+    <script src="scripts/modules/cabinet-glass.js"></script>
+    <script src="scripts/modules/hardware.js"></script>
+    <script src="scripts/script.js"></script>
   </body>
 </html>

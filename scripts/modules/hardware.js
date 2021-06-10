@@ -80,16 +80,54 @@ const hardware = [
   },
 ]; //end hardware
 
-hardware.forEach((_, index) => {
-  const html = `
-    <div class="container__box">
-      <h3 class="container__box__header">${hardware[index].name}</h3>
+const hardwareBtnRight = document.querySelector('.hardware__button__right');
+const hardwareBtnLeft = document.querySelector('.hardware__button__left');
+
+let current_hardware = 1;
+
+let hardwareRows = 3;
+
+const displayHardware = function (items, wrapper, rows_per_page, page) {
+  wrapper.innerHTML = '';
+  page--;
+
+  let start = rows_per_page * page;
+  let end = start + rows_per_page;
+
+  let paginatedItems = items.slice(start, end);
+
+  for (let i = 0; i < paginatedItems.length; i++) {
+    const html = `
+    <div class="container__box pagination">
+      <h3 class="container__box__header">${paginatedItems[i].name}</h3>
       <div class="img__wrap">
-        <img class="container__box__img " src="${hardware[index].img}" alt="${hardware[index].name}" />
+        <img class="container__box__img " src="${paginatedItems[i].img}" alt="${paginatedItems[i].name}" />
         <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
       </div>
     </div>
   `;
+    hardwareSection.insertAdjacentHTML('afterbegin', html);
+  }
+}; //end displayHardware fn
 
-  hardwareSection.insertAdjacentHTML('afterbegin', html);
+hardwareBtnRight.addEventListener('click', () => {
+  $(hardwareSection).children().hide();
+
+  if (current_hardware === 3) current_hardware = 0;
+
+  current_hardware++;
+
+  displayHardware(hardware, hardwareSection, hardwareRows, current_hardware);
 });
+
+hardwareBtnLeft.addEventListener('click', () => {
+  $(hardwareSection).children().hide();
+
+  if (current_hardware === 0) current_hardware = 3;
+
+  displayHardware(hardware, hardwareSection, hardwareRows, current_hardware);
+
+  current_hardware--;
+});
+
+displayHardware(hardware, hardwareSection, hardwareRows, current_hardware);
