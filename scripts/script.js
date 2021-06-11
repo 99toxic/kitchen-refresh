@@ -77,21 +77,33 @@ const selectItems = function (items) {
 submitBtn.addEventListener('click', function (e) {
   e.preventDefault();
 
-  const itemsPicked = document.querySelectorAll('.picked');
+  let finish, door, glass, hardware, counter;
 
-  console.log(
-    itemsPicked,
-    formDoors.value,
-    formGlass.value,
-    formDrawers.value,
-    formWall.value,
-    formTray.value,
-    formName.value,
-    formCity.value,
-    formState.value,
-    formEmail.value,
-    formTel.value,
-    formCheckbox.checked
+  document.querySelectorAll('.picked').forEach(item => {
+    if (item.classList.contains('finished')) finish = item.alt;
+    if (item.classList.contains('doored')) door = item.alt;
+    if (item.classList.contains('glassed')) glass = item.alt;
+    if (item.classList.contains('hardwared')) hardware = item.alt;
+    if (item.classList.contains('countered')) counter = item.alt;
+  });
+
+  alert(
+    `Finish: ${finish},
+    Door Style: ${door},
+    Glass Style: ${glass},
+    Hardware Style: ${hardware},
+    Countertop Style: ${counter},
+    Number of Doors: ${formDoors.value},
+    Number of Glass: ${formGlass.value},
+    Number of Drawers: ${formDrawers.value},
+    Wall Measurement: ${formWall.value},
+    Additional Organizers: ${formTray.value},
+    Name: ${formName.value},
+    City: ${formCity.value},
+    State: ${formState.value},
+    Email: ${formEmail.value},
+    Telephone: ${formTel.value},
+    Paint Cabinets (yes or no) ${formCheckbox.checked}`
   );
 });
 

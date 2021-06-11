@@ -116,7 +116,7 @@ const displayCounter = function (items, wrapper, rows_per_page, page) {
     <div class="container__box pagination">
       <h3 class="container__box__header">${paginatedItems[i].name}</h3>
       <div class="img__wrap">
-        <img class="container__box__img " src="${paginatedItems[i].img}" alt="${paginatedItems[i].name}" />
+        <img class="container__box__img countered" src="${paginatedItems[i].img}" alt="${paginatedItems[i].name}" />
         <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
       </div>
     </div>
