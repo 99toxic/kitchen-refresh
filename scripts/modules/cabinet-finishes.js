@@ -180,6 +180,7 @@ finishBtnRight.addEventListener('click', () => {
   current_page++;
 
   displayList(cabinetFinishes, list_element, rows, current_page);
+  selectItems('finish');
 });
 
 finishBtnLeft.addEventListener('click', () => {
@@ -188,6 +189,7 @@ finishBtnLeft.addEventListener('click', () => {
   if (current_page === 0) current_page = Math.round(cabinetFinishes.length / 6 - 1);
 
   displayList(cabinetFinishes, list_element, rows, current_page);
+  selectItems('finish');
 
   current_page--;
 });

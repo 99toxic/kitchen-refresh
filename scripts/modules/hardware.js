@@ -118,6 +118,7 @@ hardwareBtnRight.addEventListener('click', () => {
   current_hardware++;
 
   displayHardware(hardware, hardwareSection, hardwareRows, current_hardware);
+  selectItems('hardware');
 });
 
 hardwareBtnLeft.addEventListener('click', () => {
@@ -126,6 +127,7 @@ hardwareBtnLeft.addEventListener('click', () => {
   if (current_hardware === 0) current_hardware = 3;
 
   displayHardware(hardware, hardwareSection, hardwareRows, current_hardware);
+  selectItems('hardware');
 
   current_hardware--;
 });

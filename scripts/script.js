@@ -102,5 +102,5 @@ selectItems('finish');
 selectItems('door');
 selectItems('glass');
 selectItems('hardware');
-selectItems('drawer');
+selectItems('counter');
 selectItems('drawerH');

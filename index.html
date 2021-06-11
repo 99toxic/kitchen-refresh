@@ -105,27 +105,22 @@
     </main>
     <main class="page page__three hidden">
       <div class="container">
-        <h2 class="container__header">Step 5: Select Your Drawer Style</h2>
+        <h2 class="container__header">Step 5: Select Your Countertop Style</h2>
 
-        <div class="container__elements" data-selection="drawer">
-          <div class="container__box">
-            <h3 class="container__box__header">Shaker</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_16" src="img/drawer.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
+        <div class="layout">
+          <button class="counter__button__left p_button">
+            <i class="fa li fa fa-chevron-left"></i>
+          </button>
+
+          <div class="container__elements counter" data-selection="counter">
+            <!-- insertAdjacentHTML Countertops.js -->
           </div>
-          <div></div>
-          <div class="container__box">
-            <h3 class="container__box__header">Modern</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_17" src="img/drawer.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
+          <button class="counter__button__right p_button">
+            <i class="fa li fa fa-chevron-right"></i>
+          </button>
         </div>
       </div>
-      <div class="container">
+      <!-- <div class="container">
         <h2 class="container__header">Step 6: Select Your Drawer Hardware</h2>
 
         <div class="container__elements" data-selection="drawerH">
@@ -151,7 +146,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="container__split">
         <div class="container__split__box">
           <div class="container__split__box__items">
@@ -223,6 +218,7 @@
     <script src="scripts/modules/cabinet-door-style.js"></script>
     <script src="scripts/modules/cabinet-glass.js"></script>
     <script src="scripts/modules/hardware.js"></script>
+    <script src="scripts/modules/countertops.js"></script>
     <script src="scripts/script.js"></script>
   </body>
 </html>

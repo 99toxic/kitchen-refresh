@@ -27,6 +27,10 @@ h2 {
   font-size: 3rem;
 }
 
+h3 {
+  font-size: 1.7rem;
+}
+
 .link:link,
 .link:visited {
   color: #402a38;

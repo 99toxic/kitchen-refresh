@@ -73,6 +73,7 @@ doorsBtnRight.addEventListener('click', () => {
   current_doors++;
 
   displayDoors(cabinetDoorStyles, doorSection, doorRows, current_doors);
+  selectItems('door');
 });
 
 doorsBtnLeft.addEventListener('click', () => {
@@ -81,6 +82,7 @@ doorsBtnLeft.addEventListener('click', () => {
   if (current_doors === 0) current_doors = 2;
 
   displayDoors(cabinetDoorStyles, doorSection, doorRows, current_doors);
+  selectItems('door');
 
   current_doors--;
 });

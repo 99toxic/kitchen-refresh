@@ -3,7 +3,11 @@
 const glassSection = document.querySelector('.glass');
 
 const cabinetGlass = [
-  {},
+  {
+    name: 'linen',
+    price: 180,
+    img: 'img/cabinet-glass/linen.jpg',
+  },
   {
     name: 'Clear',
     price: 180,
@@ -69,6 +73,7 @@ glassBtnRight.addEventListener('click', () => {
   current_glass++;
 
   displayGlass(cabinetGlass, glassSection, glassRows, current_glass);
+  selectItems('glass');
 });
 
 glassBtnLeft.addEventListener('click', () => {
@@ -77,6 +82,7 @@ glassBtnLeft.addEventListener('click', () => {
   if (current_glass === 0) current_glass = 2;
 
   displayGlass(cabinetGlass, glassSection, glassRows, current_glass);
+  selectItems('glass');
 
   current_glass--;
 });
