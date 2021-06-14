@@ -77,34 +77,125 @@ const selectItems = function (items) {
 submitBtn.addEventListener('click', function (e) {
   e.preventDefault();
 
-  let finish, door, glass, hardware, counter;
+  let finish,
+    finishPrice,
+    door,
+    doorPrice,
+    doorPriceTotal,
+    glass,
+    glassPrice,
+    glassPriceTotal,
+    hardware,
+    hardwarePrice,
+    hardwarePriceTotal,
+    counter,
+    counterPrice,
+    totalPrice;
 
   document.querySelectorAll('.picked').forEach(item => {
-    if (item.classList.contains('finished')) finish = item.alt;
-    if (item.classList.contains('doored')) door = item.alt;
-    if (item.classList.contains('glassed')) glass = item.alt;
-    if (item.classList.contains('hardwared')) hardware = item.alt;
-    if (item.classList.contains('countered')) counter = item.alt;
+    if (item.classList.contains('finished')) {
+      finish = item.alt;
+      finishPrice = item.name;
+    }
+    if (item.classList.contains('doored')) {
+      door = item.alt;
+      doorPrice = item.name;
+    }
+    if (item.classList.contains('glassed')) {
+      glass = item.alt;
+      glassPrice = item.name;
+    }
+    if (item.classList.contains('hardwared')) {
+      hardware = item.alt;
+      hardwarePrice = item.name;
+    }
+    if (item.classList.contains('countered')) {
+      counter = item.alt;
+      counterPrice = item.name;
+    }
   });
 
-  alert(
-    `Finish: ${finish},
-    Door Style: ${door},
-    Glass Style: ${glass},
-    Hardware Style: ${hardware},
-    Countertop Style: ${counter},
-    Number of Doors: ${formDoors.value},
-    Number of Glass: ${formGlass.value},
-    Number of Drawers: ${formDrawers.value},
-    Wall Measurement: ${formWall.value},
-    Additional Organizers: ${formTray.value},
-    Name: ${formName.value},
-    City: ${formCity.value},
-    State: ${formState.value},
-    Email: ${formEmail.value},
-    Telephone: ${formTel.value},
-    Paint Cabinets (yes or no) ${formCheckbox.checked}`
+  doorPriceTotal = doorPrice * formDoors.value;
+  glassPriceTotal = glassPrice * formGlass.value;
+  hardwarePriceTotal = hardwarePrice * formDrawers.value;
+
+  totalPrice = Math.ceil(
+    parseFloat(finishPrice) +
+      parseFloat(doorPriceTotal) +
+      parseFloat(glassPriceTotal) +
+      parseFloat(hardwarePriceTotal) +
+      parseFloat(counterPrice)
   );
+
+  $('.submitTextarea').val(`
+  FINISH: ${finish}
+  FINISH PRICE: ${finishPrice},
+
+  DOOR STYLE: ${door}
+  NUMBER OF DOORS: ${formDoors.value}
+  PRICE PER DOOR: ${doorPrice}
+  TOTAL DOOR PRICE: ${doorPriceTotal},
+
+  GLASS STYLE: ${glass}
+  NUMBER OF GLASS: ${formGlass.value}
+  PRICE PER GLASS: ${glassPrice}
+  TOTAL GLASS PRICE: ${glassPriceTotal},
+
+  HARDWARE STYLE: ${hardware}
+  NUMBER OF HARDWARE: ${formDrawers.value}
+  PRICE PER HARDWARE: ${hardwarePrice}
+  TOTAL HARDWARE PRICE: ${hardwarePriceTotal},
+
+  COUNTERTOP STYLE: ${counter}
+  COUNTERTOP PRICE: ${counterPrice},
+
+  WALL MEASUREMENT: ${formWall.value},
+  ADDITIONAL ORGANIZERS: ${formTray.value},
+
+  TOTAL PRICE: ${totalPrice}
+
+  Name: ${formName.value},
+  City: ${formCity.value},
+  State: ${formState.value},
+  Email: ${formEmail.value},
+  Telephone: ${formTel.value},
+
+  Paint Cabinets (yes or no) ${formCheckbox.checked}`);
+
+  // console.log(`
+  //   FINISH: ${finish}
+  //   FINISH PRICE: ${finishPrice},
+
+  //   DOOR STYLE: ${door}
+  //   NUMBER OF DOORS: ${formDoors.value}
+  //   PRICE PER DOOR: ${doorPrice}
+  //   TOTAL DOOR PRICE: ${doorPriceTotal},
+
+  //   GLASS STYLE: ${glass}
+  //   NUMBER OF GLASS: ${formGlass.value}
+  //   PRICE PER GLASS: ${glassPrice}
+  //   TOTAL GLASS PRICE: ${glassPriceTotal},
+
+  //   HARDWARE STYLE: ${hardware}
+  //   NUMBER OF HARDWARE: ${formDrawers.value}
+  //   PRICE PER HARDWARE: ${hardwarePrice}
+  //   TOTAL HARDWARE PRICE: ${hardwarePriceTotal},
+
+  //   COUNTERTOP STYLE: ${counter}
+  //   COUNTERTOP PRICE: ${counterPrice},
+
+  //   WALL MEASUREMENT: ${formWall.value},
+  //   ADDITIONAL ORGANIZERS: ${formTray.value},
+
+  //   TOTAL PRICE: ${totalPrice}
+
+  //   Name: ${formName.value},
+  //   City: ${formCity.value},
+  //   State: ${formState.value},
+  //   Email: ${formEmail.value},
+  //   Telephone: ${formTel.value},
+
+  //   Paint Cabinets (yes or no) ${formCheckbox.checked}`);
 });
 
 nextPage();

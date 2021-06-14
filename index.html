@@ -3,6 +3,7 @@
   <head>
     <title>Kitchen Refresh</title>
     <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 
     <!--Stylesheets-->
     <link rel="stylesheet" href="css/main.css" type="text/css" />
@@ -46,7 +47,7 @@
         </div>
       </div>
       <div class="container__button">
-        <div></div>
+        <div class="hiddenButton"></div>
         <button class="container__button__next">Next</button>
       </div>
     </main>
@@ -120,37 +121,10 @@
           </button>
         </div>
       </div>
-      <!-- <div class="container">
-        <h2 class="container__header">Step 6: Select Your Drawer Hardware</h2>
-
-        <div class="container__elements" data-selection="drawerH">
-          <div class="container__box">
-            <h3 class="container__box__header">Rustic</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_18" src="img/hardware.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
-          <div class="container__box">
-            <h3 class="container__box__header">Marvelous</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_19" src="img/hardware.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
-          <div class="container__box">
-            <h3 class="container__box__header">Glacier</h3>
-            <div class="img__wrap">
-              <img class="container__box__img img_20" src="img/hardware.jpg" alt="" />
-              <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-            </div>
-          </div>
-        </div>
-      </div> -->
       <div class="container__split">
         <div class="container__split__box">
           <div class="container__split__box__items">
-            <h2 class="container__split__box__header">Step 7: Tell Us Your Quantities</h2>
+            <h2 class="container__split__box__header">Step 6: Tell Us Your Quantities</h2>
             <form class="container__split__box__items__form" action="input">
               <ul>
                 <li>
@@ -162,7 +136,7 @@
                   <input type="number" name="glass" id="glass" />
                 </li>
                 <li>
-                  <label for="drawers">Cabinet Drawers:</label>
+                  <label for="drawers">Hardware:</label>
                   <input type="number" name="drawers" id="drawers" />
                 </li>
                 <li>
@@ -182,26 +156,32 @@
               <form class="container__split__box__forms__form" action="input">
                 <ul>
                   <li>
-                    <input type="text" name="name" id="name" placeholder="Name" />
+                    <input type="text" name="name" id="name" placeholder="Name" required />
                   </li>
                   <li class="side">
-                    <input type="text" name="city" id="city" placeholder="City" />
+                    <input type="text" name="city" id="city" placeholder="City" required />
 
-                    <input type="text" name="state" id="state" placeholder="State" />
+                    <input type="text" name="state" id="state" placeholder="State" required />
                   </li>
                   <li>
-                    <input type="email" name="email" id="email" placeholder="Email" />
+                    <input type="email" name="email" id="email" placeholder="Email" required />
                   </li>
                   <li>
-                    <input type="tel" name="tel" id="tel" placeholder="Telephone" />
+                    <input type="tel" name="tel" id="tel" placeholder="Telephone" required />
                   </li>
                   <li class="checkbox">
                     <input type="checkbox" id="checkbox" />
-                    <label for="checkbox" name="checkbox"
-                      >I would like Kitchen Refresh to paint my cabinets</label
-                    >
+                    <label for="checkbox" name="checkbox">
+                      I would like Kitchen Refresh to paint my cabinets
+                    </label>
                   </li>
                 </ul>
+              </form>
+
+              <form class="submitForm" action="POST" data-netlify="true">
+                <textarea class="submitTextarea" name="message" id="message">
+THIS TEXT GETS REMOVED</textarea
+                >
               </form>
             </div>
           </div>

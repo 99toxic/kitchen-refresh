@@ -239,3 +239,27 @@ ul {
   flex-direction: row;
   flex: 1 90% 1;
 }
+
+@media only screen and (max-width: 700px) {
+  .container__elements > * {
+    flex: 1;
+  }
+
+  .container__button {
+    justify-content: space-around;
+    margin-top: 0;
+  }
+
+  .container__button__next,
+  .container__button__submit {
+    width: 30rem;
+    height: 6rem;
+    background-color: #2e9b22;
+    color: #ffffff;
+    margin-top: 3rem;
+  }
+
+  .hiddenButton {
+    display: none;
+  }
+}
