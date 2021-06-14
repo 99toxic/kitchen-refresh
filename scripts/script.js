@@ -162,6 +162,8 @@ submitBtn.addEventListener('click', function (e) {
 
   Paint Cabinets (yes or no) ${formCheckbox.checked}`);
 
+  $('.submitForm').submit();
+
   // console.log(`
   //   FINISH: ${finish}
   //   FINISH PRICE: ${finishPrice},
