@@ -21,7 +21,9 @@ body {
   line-height: 1.7;
   background-color: #f4f4f4;
 }
-
+img {
+  size: 50%;
+}
 h2 {
   font-weight: 200;
   font-size: 2.5rem;
@@ -68,6 +70,7 @@ h3 {
 .img__wrap {
   position: relative;
   background: hsla(114, 64%, 37%, 0.24);
+  
 }
 
 .page {
@@ -135,7 +138,7 @@ h3 {
 .container__split__box__items__form {
   background-color: #f4f4f4;
   width: 80%;
-  margin: 2rem 0 0 5%;
+  margin: 3rem 0 0 5%;
   padding: 3rem;
   color: #000;
   border-radius: 3rem;
@@ -181,7 +184,7 @@ ul {
 
 .container__split__box__forms__form {
   text-align: center;
-  width: 40rem;
+  width: 60rem;
   align-self: center;
   margin-top: 2rem;
 }
@@ -230,7 +233,7 @@ ul {
   background: none;
   border: none;
   font-size: 3rem;
-  color: #2e9b22;
+  
 }
 
 .layout {
