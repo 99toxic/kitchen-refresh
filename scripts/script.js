@@ -5,33 +5,52 @@ const finishHTML = document.querySelector;
 const pageOne = document.querySelector('.page__one');
 const pageTwo = document.querySelector('.page__two');
 const pageThree = document.querySelector('.page__three');
+//add pages
+const page4 = document.querySelector('.page__four');
+const page5 = document.querySelector('.page__five');
+const page6 = document.querySelector('.page__six');
+const page7 = document.querySelector('.page__seven');
+const page8 = document.querySelector('.page__eight');
+const page9 = document.querySelector('.page__nine');
+//end adds
 
-const formDoors = document.getElementById('doors');
+//add door type
+const typeDoors = document.getElementById('type');
+
+const formDoors = document.getElementById('door');
 const formGlass = document.getElementById('glass');
 const formDrawers = document.getElementById('drawers');
-const formWall = document.getElementById('wall');
-const formTray = document.getElementById('tray');
-
 const formName = document.getElementById('name');
-const formCity = document.getElementById('city');
-const formState = document.getElementById('state');
+const formZip = document.getElementById('zip');
 const formEmail = document.getElementById('email');
 const formTel = document.getElementById('tel');
 const formCheckbox = document.getElementById('checkbox');
-
+//add bells and whistles
+const formDoorsCount = document.getElementById('doorsct');
+const formHardware = document.getElementById('hardware');
+const formDrawerFrontStyle = document.getElementById('drawerFS');
+const formDrawerFrontHardware = document.getElementById('drawerFHS');
+const formDrawerReplace = document.getElementById('drawerReplace');
+const formRolloutReplace = document.getElementById('rolloutReplace');
+const formPaintMe = document.getElementById('paint');
+const formCountertop = document.getElementById('counter');
+const formLinearFt = document.getElementById('linearFt');
+//end adds
 const submitBtn = document.querySelector('.container__button__submit');
+//
 
 // When 'next' button is clicked it goes to next page
 const nextPage = function () {
   document.querySelectorAll(`.container__button__next`).forEach(item => {
     item.addEventListener('click', () => {
       const pageName = item.parentElement.parentElement.className;
-
+     var count = 0;
       if (pageName === 'page page__one') {
         if (!$('.container__box__img').hasClass('picked')) {
           alert('Please Select Your Finish');
           return;
         }
+
         pageTwo.classList.remove('hidden');
         pageOne.classList.add('hidden');
       }
@@ -40,6 +59,31 @@ const nextPage = function () {
         pageThree.classList.remove('hidden');
         pageTwo.classList.add('hidden');
       }
+      if (pageName === 'page page__three') {
+        pageThree.classList.add('hidden');
+        page4.classList.remove('hidden');
+      }
+      if (pageName === 'page page__four'){
+      page4.classList.add('hidden');
+      page5.classList.remove('hidden');
+      }
+      if(pageName === 'page page__five'){
+      page5.classList.add('hidden');
+      page6.classList.remove('hidden');
+      }
+      if(pageName === 'page page__six'){
+        page6.classList.add('hidden');
+        page7.classList.remove('hidden');
+      }
+      if(pageName === 'page page__seven'){
+        page7.classList.add('hidden');
+        page8.classList.remove('hidden');
+      }
+      if(pageName === 'page page__eight'){
+       page8.classList.add('hidden');
+       page9.classList.remove('hidden'); 
+      }
+      
     });
   });
 }; //end nextPage fn
@@ -50,14 +94,38 @@ const previousPage = function () {
     item.addEventListener('click', () => {
       const pageName = item.parentElement.parentElement.className;
 
+
+      if (pageName === 'page page__two') {
+        pageTwo.classList.add('hidden');
+        pageOne.classList.remove('hidden');
+      }
       if (pageName === 'page page__three') {
         pageTwo.classList.remove('hidden');
         pageThree.classList.add('hidden');
       }
-
-      if (pageName === 'page page__two') {
-        pageOne.classList.remove('hidden');
-        pageTwo.classList.add('hidden');
+      if (pageName === 'page page__four') {
+        page4.classList.add('hidden');
+        pageThree.classList.remove('hidden');
+      }
+      if (pageName === 'page page__five'){
+      page5.classList.add('hidden');
+      page4.classList.remove('hidden');
+      }
+      if(pageName === 'page page__six'){
+      page6.classList.add('hidden');
+      page5.classList.remove('hidden');
+      }
+      if(pageName === 'page page__seven'){
+        page7.classList.add('hidden');
+        page6.classList.remove('hidden');
+      }
+      if(pageName === 'page page__eight'){
+        page8.classList.add('hidden');
+        page7.classList.remove('hidden');
+      }
+      if(pageName === 'page page__nine'){
+       page9.classList.add('hidden');
+       page8.classList.remove('hidden'); 
       }
     });
   });
@@ -67,7 +135,7 @@ const previousPage = function () {
 const selectItems = function (items) {
   $('div[data-selection] div').click(function () {
     if ($(this).parent('div').attr('data-selection') == items) {
-      $("div[data-selection='" + items + "']  img").removeClass('picked');
+     // $("div[data-selection='" + items  + "']  img").removeClass('picked');
       $(this).find('img').toggleClass('picked');
     }
   });
@@ -90,6 +158,16 @@ submitBtn.addEventListener('click', function (e) {
     hardwarePriceTotal,
     counter,
     counterPrice,
+    drawerFrontStyle,
+    drawerFrontStylePrice,
+    drawerFrontHardwareStyle,
+    drawerFrontHardwareStylePrice,
+    subTotal,
+    paintSubtotal,
+    countertopSubTotal,
+    finishPriceSub,
+    drawerFrontHSTotal,
+    drawerFrontStyleTotal,
     totalPrice;
 
   document.querySelectorAll('.picked').forEach(item => {
@@ -109,54 +187,80 @@ submitBtn.addEventListener('click', function (e) {
       hardware = item.alt;
       hardwarePrice = item.name;
     }
+
     if (item.classList.contains('countered')) {
       counter = item.alt;
       counterPrice = item.name;
     }
+    if (item.classList.contains('drawerFSed')){
+      drawerFrontStyle = item.alt;
+      drawerFrontStylePrice = item.name;
+
+    }
+    if (item.classList.contains('drawerFHSed')){
+      drawerFrontHardwareStyle = item.alt;
+      drawerFrontHardwareStylePrice = item.name;
+
+    }
+    
   });
 
-  doorPriceTotal = doorPrice * formDoors.value;
-  glassPriceTotal = glassPrice * formGlass.value;
-  hardwarePriceTotal = hardwarePrice * formDrawers.value;
-
-  totalPrice = Math.ceil(
-    parseFloat(finishPrice) +
+  doorPriceTotal = doorPrice * formDoorsCount.value;
+  glassPriceTotal = glassPrice * formDoorsCount.value;
+  finishPriceSub = (finishPrice * 2);
+  
+  hardwarePriceTotal = hardwarePrice * formDrawerReplace.value;
+  drawerFrontHSTotal = drawerFrontHardwareStyle * formDrawerReplace.value;
+  drawerFrontStyleTotal = drawerFrontStylePrice * formDrawerReplace.value;
+  subTotal = Math.ceil(
+    parseFloat(finishPriceSub) +
       parseFloat(doorPriceTotal) +
       parseFloat(glassPriceTotal) +
-      parseFloat(hardwarePriceTotal) +
-      parseFloat(counterPrice)
+      parseFloat(hardwarePriceTotal) + 
+      parseFloat(drawerFrontHSTotal) + 
+      parseFloat(drawerFrontHardwareStylePrice)
   );
 
+    if(formPaintMe.value == 'yes'){
+  paintSubtotal = 22 * formRolloutReplace.value;
+    }
+    else{
+      paintSubtotal = 0.00;
+    }
+    countertopSubTotal = counterPrice * formLinearFt.value; 
+    totalPrice = Math.ceil(
+      parseFloat(paintSubtotal) +
+        parseFloat(subTotal) +
+        parseFloat(countertopSubTotal)
+    );
   $('.submitTextarea').val(`
   FINISH: ${finish}
   FINISH PRICE: ${finishPrice},
 
   DOOR STYLE: ${door}
-  NUMBER OF DOORS: ${formDoors.value}
+
+
   PRICE PER DOOR: ${doorPrice}
   TOTAL DOOR PRICE: ${doorPriceTotal},
 
   GLASS STYLE: ${glass}
-  NUMBER OF GLASS: ${formGlass.value}
+
   PRICE PER GLASS: ${glassPrice}
   TOTAL GLASS PRICE: ${glassPriceTotal},
 
   HARDWARE STYLE: ${hardware}
-  NUMBER OF HARDWARE: ${formDrawers.value}
+ 
   PRICE PER HARDWARE: ${hardwarePrice}
   TOTAL HARDWARE PRICE: ${hardwarePriceTotal},
 
   COUNTERTOP STYLE: ${counter}
   COUNTERTOP PRICE: ${counterPrice},
-
-  WALL MEASUREMENT: ${formWall.value},
-  ADDITIONAL ORGANIZERS: ${formTray.value},
+  
 
   TOTAL PRICE: ${totalPrice}
 
   Name: ${formName.value},
-  City: ${formCity.value},
-  State: ${formState.value},
+  Zip: ${formZip.value},
   Email: ${formEmail.value},
   Telephone: ${formTel.value},
 
@@ -164,48 +268,70 @@ submitBtn.addEventListener('click', function (e) {
 
   $('.submitForm').submit();
 
-  // console.log(`
-  //   FINISH: ${finish}
-  //   FINISH PRICE: ${finishPrice},
+   console.log(`
+    FINISH: ${finish}
+     FINISH PRICE: ${finishPrice},
 
-  //   DOOR STYLE: ${door}
-  //   NUMBER OF DOORS: ${formDoors.value}
-  //   PRICE PER DOOR: ${doorPrice}
-  //   TOTAL DOOR PRICE: ${doorPriceTotal},
+     DOOR STYLE: ${door}
 
-  //   GLASS STYLE: ${glass}
-  //   NUMBER OF GLASS: ${formGlass.value}
-  //   PRICE PER GLASS: ${glassPrice}
-  //   TOTAL GLASS PRICE: ${glassPriceTotal},
+     PRICE PER DOOR: ${doorPrice}
+     TOTAL DOOR PRICE: ${doorPriceTotal},
 
-  //   HARDWARE STYLE: ${hardware}
-  //   NUMBER OF HARDWARE: ${formDrawers.value}
-  //   PRICE PER HARDWARE: ${hardwarePrice}
-  //   TOTAL HARDWARE PRICE: ${hardwarePriceTotal},
+     GLASS STYLE: ${glass}
+     PRICE PER GLASS: ${glassPrice}
+    TOTAL GLASS PRICE: ${glassPriceTotal},
+    DOOR COUNT: ${formDoorsCount.value},
+    DRAWERS TO BE REPLACED: ${formDrawerReplace.value},
+    ROLLOUTS TO BE REPLACED: ${formRolloutReplace.value},
+    TO BE PAINTED: ${formPaintMe.value},
+    HARDWARE STYLE: ${hardware},
+    LINEAR FT: ${formLinearFt.value},
+     PRICE PER HARDWARE: ${hardwarePrice},
+     TOTAL HARDWARE PRICE: ${hardwarePriceTotal},
+    DRAWER FRONT STYLE: ${drawerFrontStyle},
+    DRAWER FRONT STYLE PRICE: ${drawerFrontStylePrice},
+    DRAWER FRONT HARDWARE STYLE: ${drawerFrontHardwareStyle},
+    DRAWER FRONT HARDWARE STYLE PRICE: ${drawerFrontHardwareStylePrice},
+    
+     COUNTERTOP STYLE: ${counter}
+     COUNTERTOP PRICE: ${counterPrice},
 
-  //   COUNTERTOP STYLE: ${counter}
-  //   COUNTERTOP PRICE: ${counterPrice},
 
-  //   WALL MEASUREMENT: ${formWall.value},
-  //   ADDITIONAL ORGANIZERS: ${formTray.value},
+     TOTAL PRICE: ${totalPrice}
 
-  //   TOTAL PRICE: ${totalPrice}
+     Name: ${formName.value},
+     City: ${formZip.value},
+     Email: ${formEmail.value},
+     Telephone: ${formTel.value},
 
-  //   Name: ${formName.value},
-  //   City: ${formCity.value},
-  //   State: ${formState.value},
-  //   Email: ${formEmail.value},
-  //   Telephone: ${formTel.value},
-
-  //   Paint Cabinets (yes or no) ${formCheckbox.checked}`);
+     Paint Cabinets (yes or no) ${formCheckbox.checked}`);
+     document.write("Total Price: $" + totalPrice + "<br />");
+document.write("Refresh Subtotal: $" + subTotal+ "<br />");
+document.write("Painting Subtotal: $" + paintSubtotal+ "<br />");
+document.write("Countertop Subtotal: $" + countertopSubTotal+ "<br />");
+document.write("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>");
 });
 
 nextPage();
 previousPage();
 
 selectItems('finish');
+//add door type
+selectItems('type');
 selectItems('door');
 selectItems('glass');
 selectItems('hardware');
 selectItems('counter');
 selectItems('drawerH');
+//add drawer front
+selectItems('drawerFS');
+selectItems('drawerFHS');
+//selectItems('quantity')
+function results(){
+//document.write("Total Price: $" + totalPrice + "<br />");
+//document.write("Refresh Subtotal: $" + subTotal+ "<br />");
+//document.write("Painting Subtotal: $" + paintSubtotal+ "<br />");
+//document.write("Countertop Subtotal: $" + countertopSubTotal+ "<br />");
+//document.write("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut</p>");
+
+}

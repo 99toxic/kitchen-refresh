@@ -1,6 +1,6 @@
 'use strict';
 
-const doorSection = document.querySelector('.door-style');
+const doorSection = document.querySelector('.door');
 
 const cabinetDoorStyles = [
   {
@@ -35,15 +35,15 @@ const cabinetDoorStyles = [
   },
 ]; //end cabinetDoorStyle
 
-const doorsBtnRight = document.querySelector('.doors__button__right');
-const doorsBtnLeft = document.querySelector('.doors__button__left');
+const doorBtnRight = document.querySelector('.door__button__right');
+const doorBtnLeft = document.querySelector('.door__button__left');
 
 let current_doors = 1;
 
 let doorRows = 3;
 
 const displayDoors = function (items, wrapper, rows_per_page, page) {
-  wrapper.innerHTML = '';
+ wrapper.innerHTML = '';
   page--;
 
   let start = rows_per_page * page;
@@ -60,12 +60,13 @@ const displayDoors = function (items, wrapper, rows_per_page, page) {
         <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
       </div>
     </div>
+	
   `;
     doorSection.insertAdjacentHTML('afterbegin', html);
   }
 }; //end displayDoors fn
 
-doorsBtnRight.addEventListener('click', () => {
+doorBtnRight.addEventListener('click', () => {
   $(doorSection).children().hide();
 
   if (current_doors === 2) current_doors = 0;
@@ -76,7 +77,7 @@ doorsBtnRight.addEventListener('click', () => {
   selectItems('door');
 });
 
-doorsBtnLeft.addEventListener('click', () => {
+doorBtnLeft.addEventListener('click', () => {
   $(doorSection).children().hide();
 
   if (current_doors === 0) current_doors = 2;

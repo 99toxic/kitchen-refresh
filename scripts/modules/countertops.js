@@ -4,95 +4,79 @@ const counterSection = document.querySelector('.counter');
 
 const counterTops = [
   {
-    name: 'Luna Frost',
+    name: 'Granite',
     price: 100,
+    descrip: 'Highly heat and Scratch Resistant, Unaffected by Harsh Chemicals.',
     img: 'img/countertops/luna-frost.jpg',
+    range: 'Price Range $$-$$$$$',
+    construction: 'Genuine Natural Stone',
+    
   },
   {
-    name: 'White Carrara',
+    name: 'Marble',
     price: 100,
+    descrip: 'Highly Heat Resistant. Can Scratch. Affected by Harsh Chemicals.',
     img: 'img/countertops/white-carrara.jpg',
+    range: 'Price Range $$-$$$$',
+    construction: 'Genuine Natural Stone',
   },
   {
-    name: 'Blanca Natira',
+    name: 'Quartzite',
     price: 100,
+    descrip: 'Highly Heat and Scratch Resistant. Unaffected by Harsh Chemicals.',
     img: 'img/countertops/blanca-natira.jpg',
+    range: 'Price Range $$$-$$$$',
+    construction: 'Genuine Natural Stone',
   },
   {
-    name: 'Luna Frost',
+    name: 'Soapstone',
     price: 100,
+    descrip: 'Highly Heat Resistant. Unaffected by Harsh Chemicals. Can Scratch.',
     img: 'img/countertops/luna-frost.jpg',
+    range: 'Price Range $$$-$$$$',
+    construction: 'Genuine Natural Stone',
   },
   {
-    name: 'Italian White Di Pesco',
+    name: 'Porcelain',
     price: 100,
+    descrip: 'Highly Heat and Scratch Resistant. Unaffected by Harsh Chemicals.',
     img: 'img/countertops/italian-white-di-pesco.jpg',
+    range: 'Price Range $$$-$$$$$',
+    construction: 'Manufactured from a mix of glass, ceramic and other materials.',
   },
   {
-    name: 'Bainbrook Grey',
+    name: 'Butcher Block',
     price: 100,
+    descrip: 'Can Scratch Easily. Heat Resistant But Can Burn. Can Be Repaired.',
     img: 'img/countertops/bainbrook-grey.jpg',
+    range: 'Price Range $$-$$$$$',
+    construction: 'Solid wood laminated together with adhesive',
   },
   {
-    name: 'Typhoon Ice',
+    name: 'Quartz Surfacing',
     price: 100,
+    descrip: 'Heat Resistant But Can Scorch. Scratch Resistant. Unaffected by Most Chemicals.',
     img: 'img/countertops/typhoon-ice.jpg',
+    range: 'Price Range $$$-$$$$',
+    construction: 'Manufactured from natural quartz and polyester resin.',
   },
   {
-    name: 'Classic Linen',
+    name: 'Solid Surface',
     price: 100,
+    descrip: 'Can Scratch Easily. Will Melt When Exposed To High Heat. Can Be Repaired.',
     img: 'img/countertops/classic-linen.jpg',
+    range: 'Price Range $$-$$$$',
+    construction: 'Manufactured from acrylic resins.',
   },
   {
-    name: 'Kalahari Topaz',
+    name: 'Laminate',
     price: 100,
+    descrip: 'Somewhat Stain Resistant. Can Scratch and Scorch.',
     img: 'img/countertops/kalahari-topaz.jpg',
+    range: 'Price Range $-$$$',
+    construction: 'Manufactured from layers of plastic ahered to particleboard.',
   },
-  {
-    name: 'Sandy Topaz',
-    price: 100,
-    img: 'img/countertops/sandy-topaz.jpg',
-  },
-  {
-    name: 'Crunch',
-    price: 100,
-    img: 'img/countertops/crunch.jpg',
-  },
-  {
-    name: 'Bordeaux Juparana',
-    price: 100,
-    img: 'img/countertops/bordeaux-juparana.jpg',
-  },
-  {
-    name: 'Winter Carnival',
-    price: 100,
-    img: 'img/countertops/winter-carnival.jpg',
-  },
-  {
-    name: 'Mocha Fantastico',
-    price: 100,
-    img: 'img/countertops/mocha-fantastico.jpg',
-  },
-  {
-    name: 'Cosmos Granite',
-    price: 100,
-    img: 'img/countertops/cosmos-granite.jpg',
-  },
-  {
-    name: 'Bronzite',
-    price: 100,
-    img: 'img/countertops/bronzite.jpg',
-  },
-  {
-    name: 'Ink Vesta',
-    price: 100,
-    img: 'img/countertops/ink-vesta.jpg',
-  },
-  {
-    name: 'Black Alicante',
-    price: 100,
-    img: 'img/countertops/black-alicante.jpg',
-  },
+  
 ]; //end counterTops
 
 const counterBtnRight = document.querySelector('.counter__button__right');
@@ -117,8 +101,11 @@ const displayCounter = function (items, wrapper, rows_per_page, page) {
       <h3 class="container__box__header">${paginatedItems[i].name}</h3>
       <div class="img__wrap">
         <img class="container__box__img countered" name="${paginatedItems[i].price}" src="${paginatedItems[i].img}" alt="${paginatedItems[i].name}" />
+        </div>
+        <p>${paginatedItems[i].range}</p>
+        <p>${paginatedItems[i].descrip}</p><p>${paginatedItems[i].construction}</p>
         <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
-      </div>
+      <!--</div>-->
     </div>
   `;
     counterSection.insertAdjacentHTML('afterbegin', html);
@@ -128,7 +115,7 @@ const displayCounter = function (items, wrapper, rows_per_page, page) {
 counterBtnRight.addEventListener('click', () => {
   $(counterSection).children().hide();
 
-  if (current_counter === 6) current_counter = 0;
+  if (current_counter === 3) current_counter = 0;
 
   current_counter++;
 
@@ -139,7 +126,7 @@ counterBtnRight.addEventListener('click', () => {
 counterBtnLeft.addEventListener('click', () => {
   $(counterSection).children().hide();
 
-  if (current_counter === 0) current_counter = 6;
+  if (current_counter === 0) current_counter = 3;
 
   displayCounter(counterTops, counterSection, counterRows, current_counter);
   selectItems('counter');

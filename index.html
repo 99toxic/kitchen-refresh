@@ -7,7 +7,9 @@
 
     <!--Stylesheets-->
     <link rel="stylesheet" href="css/main.css" type="text/css" />
-
+    <link rel="stylesheet" href="css/steven.css" type="text/css"/>
+    
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!--font-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -20,6 +22,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    
     <!--End Stylesheets-->
   </head>
   <body>
@@ -32,7 +35,7 @@
       </p>
 
       <div class="container">
-        <h2 class="container__header">Step 1: Select Your Finish</h2>
+        <h2 class="container__header">Step 1: Select  Up to Two Finishes</h2>
 
         <div class="layout">
           <button class="finish__button__left p_button">
@@ -44,7 +47,9 @@
           <button class="finish__button__right p_button">
             <i class="fa li fa fa-chevron-right"></i>
           </button>
+          
         </div>
+
       </div>
       <div class="container__button">
         <div class="hiddenButton"></div>
@@ -53,22 +58,63 @@
     </main>
     <main class="page page__two hidden">
       <div class="container">
-        <h2 class="container__header">Step 2: Select Your Door Style</h2>
+        <h2 class="container__header">Step 2: Door Count</h2>
+        
+              <ul>
+                <li>
+                  <label for="doorsct">Enter the total number of doors you have</label>
+                  <button onclick="decrementdoorsct()">-</button>
+                  <input type="number" id="doorsct" type=number min=0 max=110 value="0" />
+                  <button onclick="incrementdoorsct()">+</button>
+                </li>
+               </ul>
+         
+        
 
-        <div class="layout">
-          <button class="doors__button__left p_button">
-            <i class="fa li fa fa-chevron-left"></i>
-          </button>
-          <div class="container__elements door-style" data-selection="door">
-            <!-- insertAdjacentHTML cabinet-door-style.js -->
+
+          <div class="container__elements type" data-selection="type">
+            <!-- insertAdjacentHTML cabinet-glass.js -->
+          
+          
+        </div>
+        <div class="container">
+          <div class="layout">
+        <div class="container__box pagination">
+          <h3 class="container__box__header">Glass Door</h3>
+          <div class="img__wrap">
+            <img class="container__box__img type" name="" src="img/doors/door-0.png" alt="" />
+            <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
           </div>
-          <button class="doors__button__right p_button">
-            <i class="fa li fa fa-chevron-right"></i>
-          </button>
+        </div>
+        <div class="container__box pagination">
+          <h3 class="container__box__header">Light Door</h3>
+          <div class="img__wrap">
+            <img class="container__box__img type" name="" src="img/doors/door-1.png" alt="" />
+            <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
+          </div>
+        </div>
+        <div class="container__box pagination">
+          <h3 class="container__box__header">No Glass</h3>
+          <div class="img__wrap">
+            <img class="container__box__img type" name="" src="img/doors/door-2.png" alt="" />
+            <div class="overlay"><i class="fa-li fa fa-check-circle"></i></div>
+          </div>
         </div>
       </div>
+      </div>
+    </div>
       <div class="container">
-        <h2 class="container__header">Step 3: Select Your Glass Style</h2>
+       
+          <ul>
+            <li>
+              <label for="doorsct">Of your total, how many do you want as top light and/or glass panel doors</label>
+              <button onclick="decrementglassdoorsct()">-</button>
+              <input type="number" id="glassdoorsct" type=number min=0 max=110 value="0" />
+              <button onclick="incrementglassdoorsct()">+</button>
+            </li>
+           </ul>
+     
+        <h2 class="container__header">If you selected any quantity of glass panel or top light doors, select glass style:</h2>
 
         <div class="layout">
           <button class="glass__button__left p_button">
@@ -83,120 +129,319 @@
           </button>
         </div>
       </div>
-      <div class="container">
-        <h2 class="container__header">Step 4: Select Your Hardware Style</h2>
 
+      <div class="container__button">
+        <button class="container__button__previous">Previous</button>
+        <button class="container__button__next">Next</button>
+      </div>
+    </main>
+    <!---Insert new page here------------------------------------------>
+    <main class="page page__three hidden">  
+  
+                <div class="container">
+                  <h2 class="container__header">Door Style</h2>
+                  <label for="doorsct">Aside from the glass panel or top light doors you may have selected, select door style:</label>
+                  <div class="layout">
+                    <button class="door__button__left p_button">
+                      <i class="fa li fa fa-chevron-left"></i>
+                    </button>
+          
+                    <div class="container__elements door" data-selection="door">
+                      
+                    </div>
+                    <button class="door__button__right p_button">
+                      <i class="fa li fa fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+
+         <h2 class="container__header">Door Hardware Style</h2>
+         <label for="doorsct">Select door pull style - pull hardware for drawers will be slected later.</label>
+         <div class="layout">
+           <button class="hardware__button__left p_button">
+             <i class="fa li fa fa-chevron-left"></i>
+           </button>
+ 
+           <div class="container__elements hardware" data-selection="hardware">
+             <!-- insertAdjacentHTML hardware.js -->
+           </div>
+           <button class="hardware__button__right p_button">
+             <i class="fa li fa fa-chevron-right"></i>
+           </button>
+         </div>
+
+    </div>
+
+
+      <div class="container__button">
+        <button class="container__button__previous">Previous</button>
+        <button class="container__button__next">Next</button>
+      </div>
+    </main>
+    <!--bein page four-->
+    <main class ="page page__four hidden">
+      <!--Begin duplication-->
+      
+      <div class="container">
+        <h2 class="container__header">Drawer Front Style</h2>
+        <label for="drawerFS">Select drawer front style:</label>
         <div class="layout">
-          <button class="hardware__button__left p_button">
+          <button class="drawerFS__button__left p_button">
             <i class="fa li fa fa-chevron-left"></i>
           </button>
 
-          <div class="container__elements hardware" data-selection="hardware">
-            <!-- insertAdjacentHTML hardware.js -->
+          <div class="container__elements drawerFS" data-selection="drawerFS">
+            
           </div>
-          <button class="hardware__button__right p_button">
+          <button class="drawerFS__button__right p_button">
             <i class="fa li fa fa-chevron-right"></i>
           </button>
         </div>
+      </div>
+
+<h2 class="container__header">Drawer Front Hardware Style</h2>
+<label for="drawerFrontHardware">Select drawer pull hardware style</label>
+<div class="layout">
+  <button class="drawerFHS__button__left p_button">
+   <i class="fa li fa fa-chevron-left"></i>
+ </button>
+
+ <div class="container__elements drawerFHS" data-selection="drawerFHS">
+   <!-- insertAdjacentHTML hardware.js -->
+ </div>
+ <button class="drawerFHS__button__right p_button">
+   <i class="fa li fa fa-chevron-right"></i>
+ </button>
+</div>
+
+</div>
+
+      <div class="container__button">
+        <button class="container__button__previous">Previous</button>
+        <button class="container__button__next">Next</button>
+      </div>
+    </main>
+    <!--End page four-->
+    <!--Begin page five -->
+    <main class ="page page__five hidden">
+      <div class="container">
+        <h2 class="container__header">Drawer Boxes</h2>
+        <div class="layout">
+          <!--add image placeholder here-->
+          <div class="img__wrap">
+            <img class="container__box__img type" name="" src="img/doors/door-0.png" alt="" />
+          </div>
+
+         
+        </div>
+        <ul>
+          <li>
+            <label for="drawerReplace">Select number of drawer boxes you'd like to replace:</label>
+            <button onclick="decrementdrawerReplace()">-</button>
+            <input type="number" id="drawerReplace" type=number min=0 max=110 value="0" />
+            <button onclick="incrementdrawerReplace()">+</button>
+          </li>
+         </ul>
+      </div>
+
+
+
+      <div class="container">
+        <h2 class="container__header">Rollouts</h2>
+        
+        <div class="layout">
+          <!--add image placeholder here-->
+          <div class="img__wrap">
+            <img class="container__box__img type" name="" src="img/doors/door-0.png" alt="" />
+          </div>
+        </div>
+        <ul>
+          <li>
+            <label for="rolloutReplace">Select number of rollout trays you'd like to replace or install:</label>
+            <button onclick="decrementRolloutReplace()">-</button>
+            <input type="number" id="rolloutReplace" type=number min=0 max=110 value="0" />
+            <button onclick="incrementRolloutReplace()">+</button>
+          </li>
+         </ul>
       </div>
       <div class="container__button">
         <button class="container__button__previous">Previous</button>
         <button class="container__button__next">Next</button>
       </div>
     </main>
-    <main class="page page__three hidden">
+    <!--End page five-->
+    <!-- Begin page six-->
+    <main class ="page page__six hidden">
       <div class="container">
-        <h2 class="container__header">Step 5: Select Your Countertop Style</h2>
+        <h2 class="container__header">Cabinet Box Painting</h2>
+        <div class="layout">
+          <!--add image placeholder here-->
+          <div class="img__wrap">
+            <img class="container__box__img type" name="" src="img/doors/door-0.png" alt="" />
+          </div>
+        </div>
 
+            <label for="drawerReplace">Would you like Kitchen Refresh to handle the painting of the cabinet boxes?</label>
+            <select name ="paint" id="paint">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+      </div>
+      <div class="container__button">
+        <button class="container__button__previous">Previous</button>
+        <button class="container__button__next">Next</button>
+      </div>
+    </main>
+    <!--End page six-->
+    <!--Begin page seven-->
+    <main class ="page page__seven hidden">
+
+      <div class="container">
+        <h2 class="container__header">Countertop Type</h2>
         <div class="layout">
           <button class="counter__button__left p_button">
             <i class="fa li fa fa-chevron-left"></i>
           </button>
 
           <div class="container__elements counter" data-selection="counter">
-            <!-- insertAdjacentHTML Countertops.js -->
+            <!-- insertAdjacentHTML drawerFront.js -->
           </div>
           <button class="counter__button__right p_button">
             <i class="fa li fa fa-chevron-right"></i>
           </button>
         </div>
+
+
       </div>
-      <div class="container__split">
-        <div class="container__split__box">
-          <div class="container__split__box__items">
-            <h2 class="container__split__box__header">Step 6: Tell Us Your Quantities</h2>
-            <form class="container__split__box__items__form" action="input">
-              <ul>
-                <li>
-                  <label for="doors">Cabinet Doors:</label>
-                  <input type="number" name="doors" id="doors" />
-                </li>
-                <li>
-                  <label for="glass">Cabinet Glass:</label>
-                  <input type="number" name="glass" id="glass" />
-                </li>
-                <li>
-                  <label for="drawers">Hardware:</label>
-                  <input type="number" name="drawers" id="drawers" />
-                </li>
-                <li>
-                  <label for="wall">Wall measurement: (in linear feet)</label>
-                  <input type="number" name="wall" id="wall" />
-                </li>
-                <li>
-                  <label for="tray">Additional Cabinet Rollout Tray Organizers:</label>
-                  <input type="number" name="tray" id="tray" />
-                </li>
-              </ul>
-            </form>
+      <div class="container__button">
+        <button class="container__button__previous">Previous</button>
+        <button class="container__button__next">Next</button>
+      </div>
+    </main>
+    <!--End page seven-->
+    <!--Begin page eight-->
+    <main class ="page page__eight hidden">
+      <div class="container">
+        <h2 class="container__header">Countertop Measurement</h2>
+        <div class="layout">
+          <!--add image placeholder here-->
+          <div class="img__wrap">
+            <img class="container__box__img type" name="" src="img/doors/door-0.png" alt="" />
           </div>
-          <div class="container__split__box">
-            <div class="container__split__box__forms">
-              <h2 class="container__split__box__header">Step 7: Give Us Your Info</h2>
-              <form class="container__split__box__forms__form" action="input">
-                <ul>
-                  <li>
-                    <input type="text" name="name" id="name" placeholder="Name" required />
-                  </li>
-                  <li class="side">
-                    <input type="text" name="city" id="city" placeholder="City" required />
+        </div>
+        <ul>
+          <li>
+            <label for="linearFt">Please enter the linear feet of countertop:</label>
+            <button onclick="decrementLinearFt()">-</button>
+            <input type="number" id="linearFt" type=number min=0 max=110 value="0" />
+            <button onclick="incrementLinearFt()">+</button>
+          </li>
+         </ul>
 
-                    <input type="text" name="state" id="state" placeholder="State" required />
-                  </li>
-                  <li>
-                    <input type="email" name="email" id="email" placeholder="Email" required />
-                  </li>
-                  <li>
-                    <input type="tel" name="tel" id="tel" placeholder="Telephone" required />
-                  </li>
-                  <li class="checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <label for="checkbox" name="checkbox">
-                      I would like Kitchen Refresh to paint my cabinets
-                    </label>
-                  </li>
-                </ul>
-              </form>
+      </div>
+      <div class="container__button">
+        <button class="container__button__previous">Previous</button>
+        <button class="container__button__next">Next</button>
+      </div>
+    </main>
 
-              <form class="hidden submitForm" action="POST" data-netlify="true">
-                <textarea class="submitTextarea" name="message" id="message"></textarea>
-              </form>
-            </div>
-          </div>
+    <!--End page eight-->
+    <!--Begin page nine-->
+    <main class="page page__nine hidden">
+
+
+
+
+      <div class="container">
+        <h2 class="container__header">Tell us about yourself</h2>
+
+        <div class="layout">
+          <form onsubmit="return results();" class="container__split__box__forms__form" method="post" action="mailto:steven@ehlenanalytics.net,">
+            <ul>
+              <li class="side">
+                <input type="text" name="name" id="name" placeholder="Name" required />
+                <input type="text" name="zip" id="zip" placeholder="Zip" required />
+              </li>
+              <li class="side">
+                <input type="email" name="email" id="email" placeholder="Email" required />
+
+                <input type="tel" name="tel" id="tel" placeholder="Telephone" required />
+              </li>
+
+              <li class="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <label for="checkbox" name="checkbox">
+                  Click the box to opt in to our VIP list and recive Special Offers, Exclusive Sneak Peeks of Recent Projects, info about the Refresh Process, Design Inspiration, Tips, Trends, New Product Announcements, and More!
+                </label>
+              </li>
+            </ul>
+          </form>
+<!-- 
+          <form class="hidden submitForm" action="POST" data-netlify="true">
+            <textarea class="submitTextarea" name="message" id="message"></textarea>
+          </form>-->
         </div>
       </div>
       <div class="container__button">
         <button class="container__button__previous">Previous</button>
-        <button class="container__button__submit">Submit</button>
+        <button onclick="results();" class="container__button__submit">Submit</button>
       </div>
+ 
     </main>
-
+    <!---->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
     <script src="scripts/modules/cabinet-finishes.js"></script>
+
     <script src="scripts/modules/cabinet-door-style.js"></script>
     <script src="scripts/modules/cabinet-glass.js"></script>
     <script src="scripts/modules/hardware.js"></script>
     <script src="scripts/modules/countertops.js"></script>
-    <script src="scripts/script.js"></script>
+    <!--add new scripts-->
+    <script src="scripts/modules/drawerFront.js" defer></script>
+    <script src="scripts/modules/drawerFrontHardware.js" defer></script>
+    
+   
+    <script src="scripts/script.js" defer></script>
+    <script>
+   function increment() {
+      document.getElementById('cabQ').stepUp();
+   }
+   function decrement() {
+      document.getElementById('cabQ').stepDown();
+   }
+   function incrementdoorsct() {
+      document.getElementById('doorsct').stepUp();
+   }
+   function decrementdoorsct() {
+      document.getElementById('doorsct').stepDown();
+   }
+   function incrementglassdoorsct() {
+      document.getElementById('glassdoorsct').stepUp();
+   }
+   function decrementglassdoorsct() {
+      document.getElementById('glassdoorsct').stepDown();
+   }
+   function incrementdrawerReplace() {
+      document.getElementById('drawerReplace').stepUp();
+   }
+   function decrementdrawerReplace() {
+      document.getElementById('drawerReplace').stepDown();
+   }
+   function decrementRolloutReplace(){
+   document.getElementById('rolloutReplace').stepDown();
+  }
+  function incrementRolloutReplace() {
+      document.getElementById('rolloutReplace').stepUp();
+   }
+   function incrementLinearFt(){
+     document.getElementById('linearFt').stepUp();
+   }
+   function decrementLinearFt(){
+   document.getElementById('linearFt').stepDown();
+  }
+</script>
   </body>
 </html>

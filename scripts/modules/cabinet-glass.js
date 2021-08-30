@@ -4,7 +4,7 @@ const glassSection = document.querySelector('.glass');
 
 const cabinetGlass = [
   {
-    name: 'linen',
+    name: 'Linen',
     price: 180,
     img: 'img/cabinet-glass/linen.jpg',
   },
@@ -14,22 +14,18 @@ const cabinetGlass = [
     img: 'img/cabinet-glass/clear.jpg',
   },
   {
-    name: 'frosted',
+    name: 'Frosted',
     price: 180,
     img: 'img/cabinet-glass/frosted.jpg',
   },
+
   {
-    name: 'linen',
-    price: 180,
-    img: 'img/cabinet-glass/linen.jpg',
-  },
-  {
-    name: 'reeded',
+    name: 'Reeded',
     price: 180,
     img: 'img/cabinet-glass/reeded.jpg',
   },
   {
-    name: 'seeded',
+    name: 'Seeded',
     price: 180,
     img: 'img/cabinet-glass/seeded.jpg',
   },
